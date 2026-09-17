@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONEZS TOXIC — DANA Kaget</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(145deg,#06142f,#0b3d91 55%,#19a9ff);
+  color:#fff;padding:20px
+}
+.card{
+  width:100%;max-width:420px;background:rgba(255,255,255,.97);color:#101828;
+  border-radius:24px;padding:30px 24px;box-shadow:0 20px 60px rgba(0,0,0,.3);
+  text-align:center
+}
+.logo{font-weight:900;font-size:27px;letter-spacing:1px;color:#0b5cff}
+.logo span{color:#111}
+h1{font-size:25px;margin:18px 0 8px}
+.sub{color:#667085;font-size:14px;line-height:1.5;margin-bottom:24px}
+input{
+  width:100%;padding:15px;border:1.5px solid #d0d5dd;border-radius:13px;
+  text-align:center;font-size:17px;outline:none;text-transform:none
+}
+input:focus{border-color:#0b5cff;box-shadow:0 0 0 3px rgba(11,92,255,.12)}
+button{
+  width:100%;margin-top:13px;padding:15px;border:0;border-radius:13px;
+  background:#0b5cff;color:#fff;font-weight:800;font-size:16px;cursor:pointer
+}
+button:hover{filter:brightness(.95)}
+#claim{display:none;background:#12a150}
+.msg{min-height:22px;margin-top:12px;font-size:13px;font-weight:700}
+.note{font-size:11px;color:#98a2b3;margin-top:22px;line-height:1.5}
+.badge{display:inline-block;background:#eaf2ff;color:#0b5cff;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800}
+</style>
+</head>
+<body>
+  <main class="card">
+    <div class="logo">ONEZS <span>TOXIC</span></div>
+    <div style="margin-top:14px"><span class="badge">DANA KAGET</span></div>
+
+    <h1>Masukkan Kode</h1>
+    <div class="sub">
+      Masukkan kode yang kamu dapatkan untuk membuka tautan DANA Kaget.
+    </div>
+
+    <input id="code" type="text" placeholder="Masukkan kode" autocomplete="off">
+    <button id="check" onclick="checkCode()">Buka Akses</button>
+
+    <div id="msg" class="msg"></div>
+
+    <button id="claim" onclick="claimDana()">🎁 Klaim DANA Kaget</button>
+
+    <div class="note">
+      Halaman ini merupakan halaman perantara ONEZS TOXIC dan bukan halaman resmi DANA.
+    </div>
+  </main>
+
+<script>
+const CORRECT_CODE = "ONES11";
+const DANA_LINK = "https://link.dana.id/danakaget?c=su2ralwx7&r=kcTLuD&orderId=20260917101214543915010300166495397636763";
+
+function checkCode(){
+  const input = document.getElementById("code").value.trim();
+  const msg = document.getElementById("msg");
+  const claim = document.getElementById("claim");
+
+  if(input.toUpperCase() === CORRECT_CODE){
+    msg.textContent = "Kode benar. Akses dibuka!";
+    msg.style.color = "#12a150";
+    claim.style.display = "block";
+  }else{
+    msg.textContent = "Kode salah. Silakan coba lagi.";
+    msg.style.color = "#d92d20";
+    claim.style.display = "none";
+  }
+}
+
+function claimDana(){
+  window.location.href = DANA_LINK;
+}
+
+document.getElementById("code").addEventListener("keydown", function(e){
+  if(e.key === "Enter") checkCode();
+});
+</script>
+</body>
+</html>
